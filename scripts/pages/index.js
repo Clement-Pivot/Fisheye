@@ -1,14 +1,14 @@
 async function getPhotographers () {
-  return fetch("../../data/photographers.json")
-    .then(resp => resp.json())
-    .then(resp => resp)
-    .catch(error => alert(`Erreur ${error}`))
+  return fetch('../../data/photographers.json')
+    .then((resp) => resp.json())
+    .catch((error) => alert(`Erreur ${error}`))
 }
 
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 
   photographers.forEach((photographer) => {
+    // eslint-disable-next-line no-undef
     const photographerModel = photographerTemplate(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
