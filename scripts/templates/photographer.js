@@ -1,18 +1,73 @@
 // eslint-disable-next-line no-unused-vars
-function photographerTemplate (data) {
-  const { name, portrait } = data
+class PhotographerTemplate {
+  constructor (data) {
+    this._name = data.name
+    this._picture = `assets/photographers/${data.portrait}`
+    this._city = data.city
+    this._country = data.country
+    this._price = data.price
+    this._tagline = data.tagline
+    this._id = data.id
+  }
 
-  const picture = `assets/photographers/${portrait}`
+  get name () {
+    return this._name
+  }
 
-  function getUserCardDOM () {
+  get picture () {
+    return this._picture
+  }
+
+  get city () {
+    return this._city
+  }
+
+  get country () {
+    return this._country
+  }
+
+  get price () {
+    return this._price
+  }
+
+  get tagline () {
+    return this._tagline
+  }
+
+  getUserCardDOM () {
     const article = document.createElement('article')
+    article.classList.add('photographerCard')
+
+    const link = document.createElement('a')
+    link.setAttribute('href', `photographer.html?${this._id}`)
+    console.log(link)
+
     const img = document.createElement('img')
-    img.setAttribute('src', picture)
+    img.classList.add('photographerCard__img')
+    img.setAttribute('src', this._picture)
+
     const h2 = document.createElement('h2')
-    h2.textContent = name
-    article.appendChild(img)
-    article.appendChild(h2)
+    h2.classList.add('photographerCard__name')
+    h2.textContent = this._name
+
+    const h3 = document.createElement('h3')
+    h3.classList.add('photographerCard__localisation')
+    h3.textContent = `${this._city}, ${this._country}`
+
+    const h4 = document.createElement('h4')
+    h4.classList.add('photographerCard__tagline')
+    h4.textContent = this._tagline
+
+    const h5 = document.createElement('h5')
+    h5.classList.add('photographerCard__price')
+    h5.textContent = `${this._price}€/jour`
+
+    link.appendChild(img)
+    link.appendChild(h2)
+    article.appendChild(link)
+    article.appendChild(h3)
+    article.appendChild(h4)
+    article.appendChild(h5)
     return (article)
   }
-  return { name, picture, getUserCardDOM }
 }

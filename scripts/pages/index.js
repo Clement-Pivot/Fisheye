@@ -7,9 +7,9 @@ async function getPhotographers () {
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 
-  photographers.forEach((photographer) => {
+  photographers.forEach((data) => {
     // eslint-disable-next-line no-undef
-    const photographerModel = photographerTemplate(photographer)
+    const photographerModel = new PhotographerTemplate(data)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
   })
