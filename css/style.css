@@ -78,7 +78,11 @@ h1 {
 }
 
 /* Tracy */
-.photographerCard__img--82 {}
+.photographerCard__img--82 {
+    height: 250px;
+    width: 250px;
+    top: -10%;
+}
 
 /* Nabeel */
 .photographerCard__img--527 {}
