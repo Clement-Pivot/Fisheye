@@ -1,4 +1,4 @@
-import { PhotographerTemplate } from '../templates/photographer.js'
+import { IndexPhotographerTemplate } from '../templates/indexPhotographer.js'
 
 async function getPhotographers () {
   return fetch('./data/photographers.json')
@@ -10,7 +10,7 @@ async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 
   photographers.forEach((data) => {
-    const photographerModel = new PhotographerTemplate(data)
+    const photographerModel = new IndexPhotographerTemplate(data)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
   })
