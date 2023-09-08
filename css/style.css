@@ -44,11 +44,6 @@ h1 {
     text-decoration: none;
 }
 
-.photographerCard__name {
-    color: #D3573C;
-    font-size: 36px;
-}
-
 .photographerCard__img {
     height: 200px;
     width: 200px;
@@ -59,8 +54,29 @@ h1 {
 .photographerCard__img img {
     object-fit: cover;
     position: relative;
-    /* image-rendering: crisp-edges; */
-    /* image-rendering: -webkit-optimize-contrast; */
+}
+
+.photographerCard__name {
+    color: #D3573C;
+    font-size: 36px;
+    margin: 20px 0 0;
+}
+
+.photographerCard__localisation {
+    color: #901C1C;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.photographerCard__tagline {
+    margin: 0;
+    font-size: 10px;
+}
+
+.photographerCard__price {
+    margin: 0;
+    font-size: 9px;
+    color: #757575;
 }
 
 /* Mimi Keel */
@@ -107,12 +123,4 @@ h1 {
     width: 320px;
     left: -20%;
     top: -15%;
-}
-
-.photographerCard * {
-    margin: 0;
-}
-
-.photographerCard__tagline {
-    margin: 3px 0;
 }
