@@ -70,7 +70,12 @@ h1 {
 }
 
 /* Ellie-Rose */
-.photographerCard__img--930 {}
+.photographerCard__img--930 {
+    height: 350px;
+    width: 350px;
+    top: -20%;
+    left: -35%;
+}
 
 /* Tracy */
 .photographerCard__img--82 {}
