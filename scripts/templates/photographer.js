@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-class PhotographerTemplate {
+export class PhotographerTemplate {
   constructor (data) {
     this._name = data.name
     this._picture = `assets/photographers/${data.portrait}`
