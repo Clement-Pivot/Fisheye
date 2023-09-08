@@ -112,6 +112,12 @@
 }
 
 
+.media-section {
+    margin: 20px 100px 0;
+    position: relative;
+}
+
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
