@@ -1,7 +1,7 @@
 import { PhotographerTemplate } from '../templates/photographer.js'
 
 async function getPhotographers () {
-  return fetch('../../data/photographers.json')
+  return fetch('./data/photographers.json')
     .then((resp) => resp.json())
     .catch((error) => alert(`Erreur ${error}`))
 }
