@@ -40,13 +40,13 @@ class PhotographerTemplate {
 
     const link = document.createElement('a')
     link.setAttribute('href', `photographer.html?${this._id}`)
-    console.log(link)
 
     const divImg = document.createElement('div')
     divImg.classList.add('photographerCard__img')
 
     const img = document.createElement('img')
     img.setAttribute('src', this._picture)
+    img.classList.add(`photographerCard__img--${this._id}`)
 
     divImg.appendChild(img)
     link.appendChild(divImg)

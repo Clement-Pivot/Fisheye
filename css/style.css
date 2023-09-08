@@ -57,11 +57,32 @@ h1 {
 }
 
 .photographerCard__img img {
-    height: 250px;
-    width: 250px;
     object-fit: cover;
     position: relative;
 }
+
+/* Mimi Keel */
+.photographerCard__img--243 {
+    height: 300px;
+    width: 300px;
+    top: -15%;
+    left: -20%;
+}
+
+/* Ellie-Rose */
+.photographerCard__img--930 {}
+
+/* Tracy */
+.photographerCard__img--82 {}
+
+/* Nabeel */
+.photographerCard__img--527 {}
+
+/* Rhode */
+.photographerCard__img--925 {}
+
+/* Marcel */
+.photographerCard__img--195 {}
 
 .photographerCard * {
     margin: 0;
