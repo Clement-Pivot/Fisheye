@@ -59,6 +59,8 @@ h1 {
 .photographerCard__img img {
     object-fit: cover;
     position: relative;
+    /* image-rendering: crisp-edges; */
+    /* image-rendering: -webkit-optimize-contrast; */
 }
 
 /* Mimi Keel */
@@ -100,7 +102,12 @@ h1 {
 }
 
 /* Marcel */
-.photographerCard__img--195 {}
+.photographerCard__img--195 {
+    height: 320px;
+    width: 320px;
+    left: -20%;
+    top: -15%;
+}
 
 .photographerCard * {
     margin: 0;
