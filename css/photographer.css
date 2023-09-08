@@ -124,6 +124,20 @@
     position: relative;
 }
 
+.filter-button {
+    margin-left: 25px;
+    background-color: #901C1C;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    width: 170px;
+    height: 60px;
+    font-size: 18px;
+    padding: 20px;
+    position: relative;
+    appearance: none;
+}
+
 
 .modal {
     border-radius: 5px;
