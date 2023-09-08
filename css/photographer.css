@@ -10,6 +10,28 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    padding: 0 50px;
+}
+
+.photographer-profile__name {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photographer-profile__localisation {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photographer-profile__tagline {
+    color: #525252;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 19px 0 0;
 }
 
 .contact_button {
