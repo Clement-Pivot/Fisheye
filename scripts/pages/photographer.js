@@ -15,7 +15,7 @@ async function init () {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographers()
   const photograph = new PersoPhotographerTemplate(getActualPhotographer(photographers))
-  console.log(photograph)
+  document.querySelector('main').appendChild(photograph.profileDOM())
 }
 
 init()
