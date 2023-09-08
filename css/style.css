@@ -85,7 +85,11 @@ h1 {
 }
 
 /* Nabeel */
-.photographerCard__img--527 {}
+.photographerCard__img--527 {
+    height: 250px;
+    width: 250px;
+    left: -10%;
+}
 
 /* Rhode */
 .photographerCard__img--925 {}
