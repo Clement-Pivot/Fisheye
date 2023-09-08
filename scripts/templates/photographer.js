@@ -42,13 +42,20 @@ class PhotographerTemplate {
     link.setAttribute('href', `photographer.html?${this._id}`)
     console.log(link)
 
+    const divImg = document.createElement('div')
+    divImg.classList.add('photographerCard__img')
+
     const img = document.createElement('img')
-    img.classList.add('photographerCard__img')
     img.setAttribute('src', this._picture)
+
+    divImg.appendChild(img)
+    link.appendChild(divImg)
 
     const h2 = document.createElement('h2')
     h2.classList.add('photographerCard__name')
     h2.textContent = this._name
+
+    link.appendChild(h2)
 
     const h3 = document.createElement('h3')
     h3.classList.add('photographerCard__localisation')
@@ -62,8 +69,6 @@ class PhotographerTemplate {
     h5.classList.add('photographerCard__price')
     h5.textContent = `${this._price}€/jour`
 
-    link.appendChild(img)
-    link.appendChild(h2)
     article.appendChild(link)
     article.appendChild(h3)
     article.appendChild(h4)
