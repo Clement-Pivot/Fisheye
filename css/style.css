@@ -92,7 +92,12 @@ h1 {
 }
 
 /* Rhode */
-.photographerCard__img--925 {}
+.photographerCard__img--925 {
+    height: 320px;
+    width: 320px;
+    left: -30%;
+    top: -15%;
+}
 
 /* Marcel */
 .photographerCard__img--195 {}
