@@ -45,6 +45,7 @@ export class PhotographerTemplate {
 
     const img = document.createElement('img')
     img.setAttribute('src', this._picture)
+    img.setAttribute('alt', this._name)
     img.classList.add(`photographerCard__img--${this._id}`)
 
     divImg.appendChild(img)
