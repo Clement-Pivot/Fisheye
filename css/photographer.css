@@ -152,7 +152,7 @@
 }
 
 /* the filter seperator */
-.filter-button:not(:first-child):after {
+.filter-button__container.active .filter-button:not(:first-child):after {
     content: "";
     border-top: 1px solid white;
     width: 150px;
