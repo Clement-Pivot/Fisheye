@@ -124,8 +124,19 @@
     position: relative;
 }
 
-.filter-button {
+.filter-button__container {
+    display: inline-flex;
+    flex-flow: column nowrap;
     margin-left: 25px;
+}
+
+.filter-button__container.active {
+    background-color: #901C1C;
+    border-radius: 5px;
+}
+
+.filter-button {
+    box-sizing: border-box;
     background-color: #901C1C;
     border-radius: 5px;
     color: white;
@@ -136,6 +147,22 @@
     padding: 20px;
     position: relative;
     appearance: none;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+/* the filter seperator */
+.filter-button:not(:first-child):after {
+    content: "";
+    border-top: 1px solid white;
+    width: 150px;
+    position: absolute;
+    left: 10px;
+    top:   0px;
+}
+
+.filter-button.hidden {
+    display: none;
 }
 
 
