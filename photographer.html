@@ -21,15 +21,15 @@
         <div class="filter-wrapper">
           Trier par
           <div class="filter-button__container">
-            <button class="filter-button" id="filter-popularity">
+            <button class="filter-button" id="filter-popularity" aria-selected="true">
               <span class="filter-button__text">Popularité</span>
               <i class="fa-solid fa-chevron-up"></i>
             </button>
-            <button class="filter-button hidden" id="filter-date">
+            <button class="filter-button hidden" id="filter-date" aria-selected="false">
               <span class="filter-button__text">Date</span>
               <i class="fa-solid"></i>
             </button>
-            <button class="filter-button hidden" id="filter-title">
+            <button class="filter-button hidden" id="filter-title" aria-selected="false">
               <span class="filter-button__text">Titre</span>
               <i class="fa-solid"></i>
             </button>
@@ -46,8 +46,8 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+						<input id="firstname"/>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
