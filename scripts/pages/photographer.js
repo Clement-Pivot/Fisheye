@@ -1,3 +1,4 @@
+import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 // import { MediaFactory } from '../factories/MediaFactory.js'
 
@@ -16,7 +17,7 @@ function getActualPhotographer (photographers) {
 function getPhotographerMedia (photographerId, mediaList) {
   return mediaList
     .filter(media => media.photographerId === photographerId)
-    .map(media => media)
+    .map(media => new MediaFactory(media))
 }
 
 async function init () {
@@ -24,6 +25,7 @@ async function init () {
   const photographer = new PersoPhotographerTemplate(getActualPhotographer(photographers))
   const $profilWrapper = document.querySelector('main')
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
+  const photographerMediaList = getPhotographerMedia(photographer.id, media)
   // const $mediaWrapper = document.querySelector('media-container')
   // $mediaWrapper.appendChild(getPhotographerMedia(photographer.id, photographers.media))
 }
