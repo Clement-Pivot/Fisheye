@@ -8,4 +8,32 @@ export class Picture {
     this._date = media.date
     this._price = media.price
   }
+
+  get id () {
+    return this._id
+  }
+
+  get photographerId () {
+    return this._photographerId
+  }
+
+  get title () {
+    return this._title
+  }
+
+  get likes () {
+    return this._likes
+  }
+
+  get date () {
+    return this._date
+  }
+
+  get price () {
+    return this._price
+  }
+
+  get image () {
+    return this._image
+  }
 }
