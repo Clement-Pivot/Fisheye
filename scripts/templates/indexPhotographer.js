@@ -1,10 +1,6 @@
 import { PhotographerTemplate } from './photographer.js'
 
 export class IndexPhotographerTemplate extends PhotographerTemplate {
-  // constructor(data) {
-  //   super(data)
-  // }
-
   contextCardDom () {
     const article = document.createElement('article')
     article.classList.add('photographerCard')
