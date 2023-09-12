@@ -23,11 +23,13 @@ function getPhotographerMedia (photographerId, mediaList) {
 async function init () {
   const { photographers, media } = await getPhotographers()
   const photographer = new PersoPhotographerTemplate(getActualPhotographer(photographers))
+
   const $profilWrapper = document.querySelector('main')
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
+
   const photographerMediaList = getPhotographerMedia(photographer.id, media)
-  // const $mediaWrapper = document.querySelector('media-container')
-  // $mediaWrapper.appendChild(getPhotographerMedia(photographer.id, photographers.media))
+  const $mediaWrapper = document.querySelector('.media-container')
+  photographerMediaList.forEach(media => $mediaWrapper.appendChild(media.getMediaCardDOM()))
 }
 
 init()
