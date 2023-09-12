@@ -7,15 +7,16 @@ async function getPhotographers () {
 }
 
 function getActualPhotographer (photographers) {
+  // return Object which is this page's data
   return photographers.filter((data) =>
     data.id.toString() === window.location.search.slice(1))[0]
 }
 
 async function init () {
-  // Récupère les datas des photographes
   const { photographers } = await getPhotographers()
   const photograph = new PersoPhotographerTemplate(getActualPhotographer(photographers))
-  document.querySelector('main').appendChild(photograph.profileDOM())
+  const $wrapper = document.querySelector('main')
+  $wrapper.insertBefore(photograph.profileDOM(), $wrapper.firstChild)
 }
 
 init()
