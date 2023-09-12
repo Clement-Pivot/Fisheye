@@ -8,22 +8,22 @@ export class PersoPhotographerTemplate extends PhotographerTemplate {
     const div = document.createElement('div')
     div.classList.add('photographer-profile')
 
-    const h2 = document.createElement('h2')
-    h2.classList.add('photographer-profile__name')
-    h2.textContent = this._name
+    const h1 = document.createElement('h1')
+    h1.classList.add('photographer-profile__name')
+    h1.textContent = this._name
 
-    div.appendChild(h2)
+    div.appendChild(h1)
+
+    const h2 = document.createElement('h2')
+    h2.classList.add('photographer-profile__localisation')
+    h2.textContent = `${this._city}, ${this._country}`
 
     const h3 = document.createElement('h3')
-    h3.classList.add('photographer-profile__localisation')
-    h3.textContent = `${this._city}, ${this._country}`
+    h3.classList.add('photographer-profile__tagline')
+    h3.textContent = this._tagline
 
-    const h4 = document.createElement('h4')
-    h4.classList.add('photographer-profile__tagline')
-    h4.textContent = this._tagline
-
+    div.appendChild(h2)
     div.appendChild(h3)
-    div.appendChild(h4)
 
     const button = document.createElement('button')
     button.classList.add('contact_button')
