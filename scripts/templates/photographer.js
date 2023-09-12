@@ -33,6 +33,10 @@ export class PhotographerTemplate {
     return this._tagline
   }
 
+  get id () {
+    return this._id
+  }
+
   getUserCardDOM () {
     return this.contextCardDom()
   }
