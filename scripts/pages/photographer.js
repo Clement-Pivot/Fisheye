@@ -1,6 +1,6 @@
 import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
-// import { MediaFactory } from '../factories/MediaFactory.js'
+import { FilterButton } from '../utils/filterButton.js'
 
 async function getPhotographers () {
   return fetch('/data/photographers.json')
@@ -30,6 +30,9 @@ async function init () {
   const photographerMediaList = getPhotographerMedia(photographer.id, media)
   const $mediaWrapper = document.querySelector('.media-container')
   photographerMediaList.forEach(media => $mediaWrapper.appendChild(media.getMediaCardDOM()))
+
+  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList)
+  filter.init()
 }
 
 init()
