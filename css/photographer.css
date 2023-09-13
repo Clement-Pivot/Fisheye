@@ -119,6 +119,7 @@
     position: relative;
     height: 60px;
     overflow: visible;
+    z-index: 2;
 }
 
 .filter-button__container {
