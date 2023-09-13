@@ -161,9 +161,9 @@
 
 /* medias */
 .media-container {
-    display: flex;
-    flex-flow: row wrap;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,  350px);
     justify-content: space-between;
 }
 
