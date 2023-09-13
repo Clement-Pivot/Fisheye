@@ -28,11 +28,9 @@ async function init () {
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
 
   const photographerMediaList = getPhotographerMedia(photographer.id, media)
-  const $mediaWrapper = document.querySelector('.media-container')
-  photographerMediaList.forEach(media => $mediaWrapper.appendChild(media.getMediaCardDOM()))
+  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList, document.querySelector('.media-container'))
 
-  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList)
-  filter.init()
+  filter.getOrder()
 }
 
 init()

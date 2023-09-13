@@ -1,6 +1,7 @@
 export class FilterButton {
-  constructor (container, medias) {
+  constructor (container, medias, wrapper) {
     this._container = container
+    this._wrapper = wrapper
     this._filters = new Map()
     this._filters.set('popularity', this._container.querySelector('#filter-popularity'))
     this._filters.set('date', this._container.querySelector('#filter-date'))
@@ -9,7 +10,7 @@ export class FilterButton {
     this._expanded = true
   }
 
-  init () {
+  getOrder () {
     this._filters.forEach((elem, name) => {
       elem.addEventListener('click', () => this.filter(name))
     })
@@ -31,7 +32,7 @@ export class FilterButton {
       .classList.add('fa-chevron-down')
   }
 
-  showSelectedChevron (order) {
+  shrink (order) {
     // foreach because can be empty
     this._container.querySelectorAll('.fa-chevron-down')
       .forEach(icon => icon.classList.remove('fa-chevron-down'))
@@ -49,34 +50,30 @@ export class FilterButton {
       this.showExpandedChevron()
       this.expand()
     } else {
+      this.shrink(order)
+      this._container.classList.remove('active')
+      this._expanded = false
+      // delete wrapper's DOM media
+      while (this._wrapper.firstChild) {
+        this._wrapper.removeChild(this._wrapper.firstChild)
+      }
       switch (order) {
         case 'popularity':
-          this.filterByPopularity()
-          break
+          return this._medias.sort((a, b) => b.likes - a.likes)
+            .forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
         case 'date':
-          this.filterByDate()
-          break
+          return this._medias.sort((a, b) => {
+            return Date.parse(a.date) - Date.parse(b.date)
+          }).forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
         case 'title':
-          this.filterByTitle()
-          break
+          return this._medias.sort((a, b) => {
+            if (a.title < b.title) return -1
+            else if (a.title > b.title) return 1
+            else return 0
+          }).forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
         default:
           throw new Error('Unknow order')
       }
-      this.showSelectedChevron(order)
-      this._container.classList.remove('active')
-      this._expanded = false
     }
-  }
-
-  filterByPopularity () {
-    return 0
-  }
-
-  filterByDate () {
-    return 0
-  }
-
-  filterByTitle () {
-    return 0
   }
 }
