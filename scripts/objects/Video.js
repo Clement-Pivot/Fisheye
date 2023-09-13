@@ -44,7 +44,7 @@ export class Video {
     const video = document.createElement('video')
     const source = document.createElement('source')
     source.setAttribute('src', this._video)
-    video.setAttribute('alt', this._title)
+    video.setAttribute('alt', `${this._title}, closeup view`)
     video.setAttribute('width', '350px')
     video.setAttribute('height', '300px')
     video.appendChild(source)

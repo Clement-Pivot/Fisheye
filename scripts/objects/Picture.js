@@ -43,7 +43,7 @@ export class Picture {
 
     const img = document.createElement('img')
     img.setAttribute('src', this._image)
-    img.setAttribute('alt', this._title)
+    img.setAttribute('alt', `${this._title}, closeup view`)
     article.appendChild(img)
 
     const h4 = document.createElement('h4')
