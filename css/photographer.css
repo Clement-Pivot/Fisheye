@@ -167,6 +167,15 @@ article img {
 }
 
 
+/* medias */
+.media-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
