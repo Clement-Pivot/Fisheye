@@ -156,16 +156,6 @@
     top:   0px;
 }
 
-.filter-button.hidden {
-    display: none;
-}
-
-article img {
-    width: 350px;
-    height: 300px;
-    object-fit: cover;
-}
-
 
 /* medias */
 .media-container {
@@ -198,6 +188,9 @@ article img {
 
 .card img, .card video {
     border-radius: 5px;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
 }
 
 
