@@ -197,6 +197,23 @@
 }
 
 
+.photograph-infos {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: #DB8876;
+    width: 376px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    position: fixed;
+    bottom: 0px;
+    right: 36px;
+}
+
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

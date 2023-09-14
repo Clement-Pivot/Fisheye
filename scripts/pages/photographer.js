@@ -20,6 +20,14 @@ function getPhotographerMedia (photographerId, mediaList) {
     .map(media => new MediaFactory(media))
 }
 
+function getLikes (photographerMediaList, $infosLikes) {
+  let likes = 0
+  photographerMediaList.forEach(media => {
+    likes += media.likes
+  })
+  return likes
+}
+
 async function init () {
   const { photographers, media } = await getPhotographers()
   const photographer = new PersoPhotographerTemplate(getActualPhotographer(photographers))
@@ -27,9 +35,20 @@ async function init () {
   const $profilWrapper = document.querySelector('main')
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
 
+  const $infosWrapper = document.querySelector('.photograph-infos')
+  const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
+  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
+  $infosPrice.textContent = `${photographer.price}€ / jour`
+
   const photographerMediaList = getPhotographerMedia(photographer.id, media)
   const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList, document.querySelector('.media-container'))
 
+  $infosLikes.textContent = getLikes(photographerMediaList, $infosLikes)
+  $infosLikes.textContent += ' '
+  const heart = document.createElement('i')
+  heart.classList.add('fa-solid')
+  heart.classList.add('fa-heart')
+  $infosLikes.appendChild(heart)
   filter.getOrder()
 }
 
