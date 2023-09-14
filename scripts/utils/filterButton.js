@@ -10,15 +10,16 @@ export class FilterButton {
     this._expanded = true
   }
 
-  getOrder () {
+  init () {
     this._filters.forEach((elem, name) => {
       elem.addEventListener('click', () => this.filter(name))
     })
     // does a filter with the first filter
-    this.filter(this._filters.keys().next().value)
+    return this.filter(this._filters.keys().next().value)
   }
 
   expand () {
+    this.showExpandedChevron()
     this._filters.forEach(element => {
       element.style.display = 'inline-flex'
     })
@@ -33,6 +34,8 @@ export class FilterButton {
   }
 
   shrink (order) {
+    this._container.classList.remove('active')
+    this._expanded = false
     // foreach because can be empty
     this._container.querySelectorAll('.fa-chevron-down')
       .forEach(icon => icon.classList.remove('fa-chevron-down'))
@@ -47,30 +50,22 @@ export class FilterButton {
 
   filter (order) {
     if (!this._expanded) {
-      this.showExpandedChevron()
       this.expand()
     } else {
       this.shrink(order)
-      this._container.classList.remove('active')
-      this._expanded = false
-      // delete wrapper's DOM media
-      while (this._wrapper.firstChild) {
-        this._wrapper.removeChild(this._wrapper.firstChild)
-      }
       switch (order) {
         case 'popularity':
           return this._medias.sort((a, b) => b.likes - a.likes)
-            .forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
         case 'date':
           return this._medias.sort((a, b) => {
             return Date.parse(a.date) - Date.parse(b.date)
-          }).forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
+          })
         case 'title':
           return this._medias.sort((a, b) => {
             if (a.title < b.title) return -1
             else if (a.title > b.title) return 1
             else return 0
-          }).forEach(media => this._wrapper.appendChild(media.getMediaCardDOM()))
+          })
         default:
           throw new Error('Unknow order')
       }
