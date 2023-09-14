@@ -1,10 +1,11 @@
 import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
+import { FilterButtonObserver } from '../utils/filterButtonObserver.js'
 import { Lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers () {
-  return fetch('/data/photographers.json')
+  return fetch('./data/photographers.json')
     .then((resp) => resp.json())
     .catch((error) => alert(`Erreur ${error}`))
 }
@@ -43,14 +44,17 @@ async function init () {
   const $profilWrapper = document.querySelector('main')
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
 
-  const photographerMediaList = getPhotographerMedia(photographer.id, media)
-  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList, document.querySelector('.media-container'))
-  filter.getOrder()
+  let photographerMediaList = getPhotographerMedia(photographer.id, media)
+  const $mediaContainer = document.querySelector('.media-container')
+  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList)
+  photographerMediaList = filter.init()
+  const filterObserver = new FilterButtonObserver($mediaContainer)
 
+  filterObserver.refreshMediaContainer(photographerMediaList)
   getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
-  // lightbox.show(photographerMediaList[0])
+  lightbox.show(photographerMediaList[0])
 }
 
 init()
