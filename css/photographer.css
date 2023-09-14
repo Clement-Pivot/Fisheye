@@ -234,6 +234,14 @@
     display: flex;
 }
 
+.lightbox__controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-items: center;
+    width: 64px;
+}
+
 .lightbox-button {
     color: #901C1C;
     background: none;
@@ -246,12 +254,11 @@
 .lightbox__close {
     align-self: flex-start;
     position: absolute;
-    right: 4vw;
 }
 
 .lightbox__content {
-    width: 1050px;
-    height: 900px;
+    width: 80vw;
+    height: 90vh;
 }
 
 .lightbox__content img, .lightbox__content video {
