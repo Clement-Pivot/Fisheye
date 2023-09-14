@@ -260,6 +260,12 @@
     object-fit: contain;
 }
 
+.lightbox__title {
+    color: #901C1C;
+    font-size: 24px;
+    margin: 0
+}
+
 
 .modal {
     border-radius: 5px;

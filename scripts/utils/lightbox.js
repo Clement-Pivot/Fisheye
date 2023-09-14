@@ -11,6 +11,7 @@ export class Lightbox {
     content.setAttribute('src', media.image)
 
     const title = document.createElement('p')
+    title.classList.add('lightbox__title')
     title.textContent = media.title
 
     this._content.appendChild(content)
