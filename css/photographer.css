@@ -173,6 +173,7 @@
     flex-flow: row wrap;
     flex: 0 0 350px;
     justify-content: space-between;
+    align-content: flex-start;
     color: #901C1C;
 }
 
@@ -182,7 +183,9 @@
 }
 
 .card h4 {
+    flex: 1 0 80%;
     font-weight: 400;
+    text-wrap: wrap;
 }
 
 .card i {
