@@ -47,14 +47,15 @@ async function init () {
   let photographerMediaList = getPhotographerMedia(photographer.id, media)
   const $mediaContainer = document.querySelector('.media-container')
   const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList)
-  photographerMediaList = filter.init()
   const filterObserver = new FilterButtonObserver($mediaContainer)
 
-  filterObserver.refreshMediaContainer(photographerMediaList)
+  filter.subscribe(filterObserver)
+  photographerMediaList = filter.init()
+
   getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
-  lightbox.show(photographerMediaList[0])
+  // lightbox.show(photographerMediaList[0])
 }
 
 init()

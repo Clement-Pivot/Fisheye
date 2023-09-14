@@ -6,6 +6,7 @@ export class FilterButton {
     this._filters.set('popularity', this._container.querySelector('#filter-popularity'))
     this._filters.set('date', this._container.querySelector('#filter-date'))
     this._filters.set('title', this._container.querySelector('#filter-title'))
+    this._observer = new Set()
     this._medias = medias
     this._expanded = true
   }
@@ -16,6 +17,18 @@ export class FilterButton {
     })
     // does a filter with the first filter
     return this.filter(this._filters.keys().next().value)
+  }
+
+  subscribe (obs) {
+    return this._observer.add(obs)
+  }
+
+  unsubscribe (observer) {
+    return this._observer.delete(observer)
+  }
+
+  fire () {
+    this._observer.forEach(obs => obs.refreshMediaContainer(this._medias))
   }
 
   expand () {
@@ -52,23 +65,28 @@ export class FilterButton {
     if (!this._expanded) {
       this.expand()
     } else {
-      this.shrink(order)
       switch (order) {
         case 'popularity':
-          return this._medias.sort((a, b) => b.likes - a.likes)
+          this._medias.sort((a, b) => b.likes - a.likes)
+          break
         case 'date':
-          return this._medias.sort((a, b) => {
+          this._medias.sort((a, b) => {
             return Date.parse(a.date) - Date.parse(b.date)
           })
+          break
         case 'title':
-          return this._medias.sort((a, b) => {
+          this._medias.sort((a, b) => {
             if (a.title < b.title) return -1
             else if (a.title > b.title) return 1
             else return 0
           })
+          break
         default:
           throw new Error('Unknow order')
       }
+      this.shrink(order)
+      this.fire()
     }
+    return this._medias
   }
 }
