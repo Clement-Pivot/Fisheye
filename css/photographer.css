@@ -162,7 +162,7 @@
 
 /* medias */
 .media-container {
-    margin-top: 50px;
+    margin: 50px auto 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit,  350px);
     justify-content: space-between;
