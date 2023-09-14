@@ -1,6 +1,7 @@
 import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
+import { Lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers () {
   return fetch('/data/photographers.json')
@@ -20,12 +21,19 @@ function getPhotographerMedia (photographerId, mediaList) {
     .map(media => new MediaFactory(media))
 }
 
-function getLikes (photographerMediaList, $infosLikes) {
+function getInfos (photographer, photographerMediaList, $infosWrapper) {
+  const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
+  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
+  $infosPrice.textContent = `${photographer.price}€ / jour`
   let likes = 0
   photographerMediaList.forEach(media => {
     likes += media.likes
   })
-  return likes
+  $infosLikes.textContent = `${likes} `
+  const heart = document.createElement('i')
+  heart.classList.add('fa-solid')
+  heart.classList.add('fa-heart')
+  $infosLikes.appendChild(heart)
 }
 
 async function init () {
@@ -35,21 +43,14 @@ async function init () {
   const $profilWrapper = document.querySelector('main')
   $profilWrapper.insertBefore(photographer.profileDOM(), $profilWrapper.firstChild)
 
-  const $infosWrapper = document.querySelector('.photograph-infos')
-  const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
-  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
-  $infosPrice.textContent = `${photographer.price}€ / jour`
-
   const photographerMediaList = getPhotographerMedia(photographer.id, media)
   const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList, document.querySelector('.media-container'))
-
-  $infosLikes.textContent = getLikes(photographerMediaList, $infosLikes)
-  $infosLikes.textContent += ' '
-  const heart = document.createElement('i')
-  heart.classList.add('fa-solid')
-  heart.classList.add('fa-heart')
-  $infosLikes.appendChild(heart)
   filter.getOrder()
+
+  getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
+
+  const lightbox = new Lightbox(document.querySelector('.lightbox'))
+  // lightbox.show(photographerMediaList[0])
 }
 
 init()
