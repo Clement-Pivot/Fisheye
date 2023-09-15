@@ -26,6 +26,7 @@ export class Video extends Media {
     likeIcon.classList.add('fa-solid')
     likeIcon.classList.add('fa-heart')
     h5.appendChild(likeIcon)
+    h5.classList.add('media-like')
     this._article.append(h5)
   }
 

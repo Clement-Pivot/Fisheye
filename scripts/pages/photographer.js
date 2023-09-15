@@ -21,19 +21,25 @@ function getPhotographerMedia (photographerId, mediaList) {
     .map(media => new MediaFactory(media))
 }
 
-function setInfos (photographer, photographerMediaList, $infosWrapper) {
+function setPrice (photographer, $infosWrapper) {
   const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
-  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
   $infosPrice.textContent = `${photographer.price}€ / jour`
+}
+
+function setLikes (photographerMediaList, $infosWrapper) {
+  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
   let likes = 0
   photographerMediaList.forEach(media => {
     likes += media.likes
   })
-  $infosLikes.textContent = `${likes} `
+  $infosLikes.textContent = likes
   const heart = document.createElement('i')
   heart.classList.add('fa-solid')
   heart.classList.add('fa-heart')
   $infosLikes.appendChild(heart)
+}
+
+function initModal (photographer) {
   const $modal = document.querySelector('.modal')
   $modal.querySelector('.name').textContent = photographer.name
   $modal.querySelector('.contact_button').addEventListener('click', e => {
@@ -41,6 +47,15 @@ function setInfos (photographer, photographerMediaList, $infosWrapper) {
     // eslint-disable-next-line no-undef
     submitModal()
   })
+}
+
+function incrementLikes (event) {
+  event.stopPropagation()
+  // change only text not childs
+  const text = event.target.parentNode.childNodes[0]
+  text.textContent = Number(text.textContent) + 1
+  const $infoLikes = document.querySelector('.photograph-infos__likes').childNodes[0]
+  $infoLikes.textContent = Number($infoLikes.textContent) + 1
 }
 
 async function init () {
@@ -57,7 +72,12 @@ async function init () {
 
   photographerMediaList = filter.init()
 
-  setInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
+  setPrice(photographer, document.querySelector('.photograph-infos'))
+  initModal(photographer)
+  setLikes(photographerMediaList, document.querySelector('.photograph-infos'))
+  document.querySelectorAll('.media-like i').forEach(like => {
+    like.addEventListener('click', e => incrementLikes(e))
+  })
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
   photographerMediaList.forEach(media => media.subscribe(lightbox))
