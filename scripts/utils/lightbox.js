@@ -13,9 +13,20 @@ export class Lightbox {
     this._nextButton.addEventListener('click', () => this.next())
 
     this._currentMedia = null
+
+    document.addEventListener('keyup', e => {
+      if (this._currentMedia) {
+        if (e.key === 'ArrowLeft') {
+          this.previous()
+        } else if (e.key === 'ArrowRight') {
+          this.next()
+        }
+      }
+    })
   }
 
   close () {
+    this._currentMedia = null
     this._container.style.display = 'none'
   }
 
