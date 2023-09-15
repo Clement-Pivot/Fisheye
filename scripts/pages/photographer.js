@@ -1,7 +1,6 @@
 import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
-import { FilterButtonObserver } from '../utils/filterButtonObserver.js'
 import { Lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers () {
@@ -46,10 +45,9 @@ async function init () {
 
   let photographerMediaList = getPhotographerMedia(photographer.id, media)
   const $mediaContainer = document.querySelector('.media-container')
-  const filter = new FilterButton(document.querySelector('.filter-button__container'), photographerMediaList)
-  const filterObserver = new FilterButtonObserver($mediaContainer)
+  const filter = new FilterButton(document.querySelector('.filter-button__container'),
+    photographerMediaList, $mediaContainer)
 
-  filter.subscribe(filterObserver)
   photographerMediaList = filter.init()
 
   getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))

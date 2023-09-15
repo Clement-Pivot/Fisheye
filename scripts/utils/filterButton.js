@@ -1,12 +1,11 @@
 export class FilterButton {
-  constructor (container, medias, wrapper) {
+  constructor (container, medias, mediaContainer) {
     this._container = container
-    this._wrapper = wrapper
     this._filters = new Map()
     this._filters.set('popularity', this._container.querySelector('#filter-popularity'))
     this._filters.set('date', this._container.querySelector('#filter-date'))
     this._filters.set('title', this._container.querySelector('#filter-title'))
-    this._observer = new Set()
+    this._mediaContainer = mediaContainer
     this._medias = medias
     this._expanded = true
   }
@@ -17,18 +16,6 @@ export class FilterButton {
     })
     // does a filter with the first filter
     return this.filter(this._filters.keys().next().value)
-  }
-
-  subscribe (obs) {
-    return this._observer.add(obs)
-  }
-
-  unsubscribe (observer) {
-    return this._observer.delete(observer)
-  }
-
-  fire () {
-    this._observer.forEach(obs => obs.refreshMediaContainer(this._medias))
   }
 
   expand () {
@@ -101,7 +88,11 @@ export class FilterButton {
       }
       this.shrink(order)
       this.refreshMediaLinks()
-      this.fire()
+      // delete wrapper's DOM media
+      while (this._mediaContainer.firstChild) {
+        this._mediaContainer.removeChild(this._mediaContainer.firstChild)
+      }
+      this._medias.forEach(media => this._mediaContainer.appendChild(media.getMediaCardDOM()))
     }
     return this._medias
   }
