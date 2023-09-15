@@ -58,4 +58,21 @@ export class Picture {
   get image () {
     return this._image
   }
+
+  subscribe (obs) {
+    this._article.addEventListener('click', () => this.fire())
+    this._observers.add(obs)
+  }
+
+  unsubscribe (obs) {
+    this._observers.delete(obs)
+  }
+
+  fire () {
+    this._observers.forEach(obs => obs.show(this))
+  }
+
+  getMediaCardDOM () {
+    return this._article
+  }
 }

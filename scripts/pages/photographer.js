@@ -55,7 +55,7 @@ async function init () {
   getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
-  // lightbox.show(photographerMediaList[0])
+  photographerMediaList.forEach(media => media.subscribe(lightbox))
 }
 
 init()

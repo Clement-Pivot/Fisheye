@@ -7,6 +7,7 @@ export class Video {
     this._likes = media.likes
     this._date = media.date
     this._price = media.price
+    this._observers = new Set()
 
     this._article = document.createElement('article')
     this._article.classList.add('card')
@@ -58,6 +59,19 @@ export class Video {
 
   get video () {
     return this._video
+  }
+
+  subscribe (obs) {
+    this._article.addEventListener('click', () => this.fire())
+    this._observers.add(obs)
+  }
+
+  unsubscribe (obs) {
+    this._observers.delete(obs)
+  }
+
+  fire () {
+    this._observers.forEach(obs => obs.show(this))
   }
 
   getMediaCardDOM () {
