@@ -45,16 +45,16 @@
     <div class="lightbox">
       <div class="lightbox__wrapper">
         <div class="lightbox__controls">
-          <button class="lightbox-button lightbox__left">
+          <button class="lightbox-button lightbox__left" aria-label="Boutton précédent">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
         </div>
         <div class="lightbox__content"></div>
         <div class="lightbox__controls">
-          <button class="lightbox-button lightbox__close">
+          <button class="lightbox-button lightbox__close" aria-label="Boutton de fermeture">
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <button class="lightbox-button lightbox__right">
+          <button class="lightbox-button lightbox__right" aria-label="Boutton suivant">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
@@ -68,7 +68,10 @@
             <br>
             <span class="name"></span>
           </h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Boutton de fermeture"/>
+          <img src="assets/icons/close.svg" 
+            onclick="closeModal()" 
+            alt="Boutton de fermeture"
+            tabindex="0">
         </header>
 				<form>
 					<div>
