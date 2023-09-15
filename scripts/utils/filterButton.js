@@ -61,6 +61,21 @@ export class FilterButton {
     })
   }
 
+  refreshMediaLinks () {
+    for (let i = 0; i < this._medias.length; i++) {
+      if (i === 0) {
+        this._medias[i].previous = this._medias[this._medias.length - 1]
+        this._medias[i].next = this._medias[i + 1]
+      } else if (i === this._medias.length - 1) {
+        this._medias[i].previous = this._medias[i - 1]
+        this._medias[i].next = this._medias[0]
+      } else {
+        this._medias[i].previous = this._medias[i - 1]
+        this._medias[i].next = this._medias[i + 1]
+      }
+    }
+  }
+
   filter (order) {
     if (!this._expanded) {
       this.expand()
@@ -85,6 +100,7 @@ export class FilterButton {
           throw new Error('Unknow order')
       }
       this.shrink(order)
+      this.refreshMediaLinks()
       this.fire()
     }
     return this._medias
