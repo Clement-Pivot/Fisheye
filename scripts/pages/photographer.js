@@ -34,6 +34,7 @@ function getInfos (photographer, photographerMediaList, $infosWrapper) {
   heart.classList.add('fa-solid')
   heart.classList.add('fa-heart')
   $infosLikes.appendChild(heart)
+  document.querySelector('.modal').querySelector('.name').textContent = photographer.name
 }
 
 async function init () {
