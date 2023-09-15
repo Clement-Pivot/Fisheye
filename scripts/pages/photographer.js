@@ -21,7 +21,7 @@ function getPhotographerMedia (photographerId, mediaList) {
     .map(media => new MediaFactory(media))
 }
 
-function getInfos (photographer, photographerMediaList, $infosWrapper) {
+function setInfos (photographer, photographerMediaList, $infosWrapper) {
   const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
   const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
   $infosPrice.textContent = `${photographer.price}€ / jour`
@@ -34,7 +34,13 @@ function getInfos (photographer, photographerMediaList, $infosWrapper) {
   heart.classList.add('fa-solid')
   heart.classList.add('fa-heart')
   $infosLikes.appendChild(heart)
-  document.querySelector('.modal').querySelector('.name').textContent = photographer.name
+  const $modal = document.querySelector('.modal')
+  $modal.querySelector('.name').textContent = photographer.name
+  $modal.querySelector('.contact_button').addEventListener('click', e => {
+    e.preventDefault()
+    // eslint-disable-next-line no-undef
+    submitModal()
+  })
 }
 
 async function init () {
@@ -51,7 +57,7 @@ async function init () {
 
   photographerMediaList = filter.init()
 
-  getInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
+  setInfos(photographer, photographerMediaList, document.querySelector('.photograph-infos'))
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
   photographerMediaList.forEach(media => media.subscribe(lightbox))
