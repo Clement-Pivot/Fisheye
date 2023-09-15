@@ -49,8 +49,10 @@ export class Lightbox {
     if ('image' in media) {
       content = document.createElement('img')
       content.setAttribute('src', media.image)
+      content.setAttribute('alt', media.title)
     } else if ('video' in media) {
       content = document.createElement('video')
+      content.setAttribute('aria-label', media.title)
       content.setAttribute('controls', true)
       const source = document.createElement('source')
       source.setAttribute('src', media.video)
