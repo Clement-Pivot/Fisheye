@@ -7,6 +7,8 @@ export class Media {
     this._date = media.date
     this._price = media.price
     this._observers = new Set()
+    this._next = null
+    this._previous = null
   }
 
   get id () {
@@ -31,6 +33,22 @@ export class Media {
 
   get price () {
     return this._price
+  }
+
+  get next () {
+    return this._next
+  }
+
+  get previous () {
+    return this._previous
+  }
+
+  set next (elem) {
+    this._next = elem
+  }
+
+  set previous (elem) {
+    this._previous = elem
   }
 
   subscribe (obs) {
