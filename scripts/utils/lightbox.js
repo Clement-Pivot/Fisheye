@@ -2,11 +2,34 @@ export class Lightbox {
   constructor (container) {
     this._container = container
     this._content = container.querySelector('.lightbox__content')
+
+    this._closeButton = container.querySelector('.lightbox__close')
+    this._closeButton.addEventListener('click', () => this.close())
+
+    this._prevButton = container.querySelector('.lightbox__left')
+    this._prevButton.addEventListener('click', () => this.previous())
+
+    this._nextButton = container.querySelector('.lightbox__right')
+    this._nextButton.addEventListener('click', () => this.next())
+
+    this._currentMedia = null
+  }
+
+  close () {
+    this._container.style.display = 'none'
+  }
+
+  previous () {
+    this.show(this._currentMedia.previous)
+  }
+
+  next () {
+    this.show(this._currentMedia.next)
   }
 
   show (media) {
+    this._currentMedia = media
     this._container.style.display = 'flex'
-    console.log(media)
     // reset lightbox content
     while (this._content.firstChild) {
       this._content.removeChild(this._content.firstChild)
