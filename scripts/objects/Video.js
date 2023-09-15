@@ -1,13 +1,9 @@
-export class Video {
+import { Media } from './Media.js'
+
+export class Video extends Media {
   constructor (media) {
-    this._id = media.id
-    this._photographerId = media.photographerId
-    this._title = media.title
+    super(media)
     this._video = `assets/images/${this._photographerId}/${media.video}`
-    this._likes = media.likes
-    this._date = media.date
-    this._price = media.price
-    this._observers = new Set()
 
     this._article = document.createElement('article')
     this._article.classList.add('card')
@@ -33,48 +29,7 @@ export class Video {
     this._article.append(h5)
   }
 
-  get id () {
-    return this._id
-  }
-
-  get photographerId () {
-    return this._photographerId
-  }
-
-  get title () {
-    return this._title
-  }
-
-  get likes () {
-    return this._likes
-  }
-
-  get date () {
-    return this._date
-  }
-
-  get price () {
-    return this._price
-  }
-
   get video () {
     return this._video
-  }
-
-  subscribe (obs) {
-    this._article.addEventListener('click', () => this.fire())
-    this._observers.add(obs)
-  }
-
-  unsubscribe (obs) {
-    this._observers.delete(obs)
-  }
-
-  fire () {
-    this._observers.forEach(obs => obs.show(this))
-  }
-
-  getMediaCardDOM () {
-    return this._article
   }
 }
