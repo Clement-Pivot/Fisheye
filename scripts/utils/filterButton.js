@@ -44,7 +44,7 @@ export class FilterButton {
         filter.style.display = 'none'
         filter.setAttribute('aria-selected', false)
       } else {
-        filter.querySelector('i').classList.add('fa-chevron-up')
+        filter.querySelector('span').classList.add('fa-chevron-up')
         filter.setAttribute('aria-selected', true)
       }
     })

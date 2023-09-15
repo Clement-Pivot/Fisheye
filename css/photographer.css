@@ -47,6 +47,12 @@
     cursor: pointer;
 }
 
+.contact_button:hover, .contact_button:focus {
+    background-color: #DB8876;
+    color: black;
+    border: 0px;
+}
+
 .photographer-profile__img {
     height: 200px;
     width: 200px;
@@ -147,6 +153,12 @@
     appearance: none;
     display: inline-flex;
     justify-content: space-between;
+}
+
+.filter-button:hover, .filter-button:focus {
+    background-color: #DB8876;
+    color: black;
+    border: none;
 }
 
 /* the filter seperator */
