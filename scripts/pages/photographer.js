@@ -76,7 +76,7 @@ async function init () {
   initModal(photographer)
   setLikes(photographerMediaList, document.querySelector('.photograph-infos'))
   document.querySelectorAll('.media-like i').forEach(like => {
-    like.addEventListener('click', e => incrementLikes(e))
+    like.addEventListener('click', e => incrementLikes(e), { once: true })
   })
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
