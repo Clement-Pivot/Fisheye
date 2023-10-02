@@ -2,7 +2,7 @@
 
 [![pages-build-deployment](https://github.com/malfeitor/FishEye/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/malfeitor/FishEye/actions/workflows/pages/pages-build-deployment)
 
-Code du projet 4 FishEye de la formation React d'OpenClassroom en HTML, CSS et Javascript uniquement.
+Code du projet 6 FishEye de la formation React d'OpenClassroom en HTML, CSS et Javascript uniquement.
 
 # Website
 [FishEye](https://malfeitor.github.io/Fisheye/)
