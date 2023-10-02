@@ -29,7 +29,7 @@ export class FilterButton {
 
   showExpandedChevron () {
     this._container.querySelector('.fa-chevron-up').classList.remove('fa-chevron-up')
-    this._filters.values().next().value.querySelector('i')
+    this._filters.values().next().value.querySelector('.fa-solid')
       .classList.add('fa-chevron-down')
   }
 
@@ -44,7 +44,7 @@ export class FilterButton {
         filter.style.display = 'none'
         filter.setAttribute('aria-selected', false)
       } else {
-        filter.querySelector('span').classList.add('fa-chevron-up')
+        filter.querySelector('.fa-solid').classList.add('fa-chevron-up')
         filter.setAttribute('aria-selected', true)
       }
     })
