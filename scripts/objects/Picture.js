@@ -7,10 +7,12 @@ export class Picture extends Media {
     this._article = document.createElement('article')
     this._article.classList.add('card')
 
-    const img = document.createElement('img')
-    img.setAttribute('src', this._image)
-    img.setAttribute('alt', `${this._title}, closeup view`)
-    this._article.appendChild(img)
+    this._container = document.createElement('img')
+    this._container.setAttribute('src', this._image)
+    this._container.setAttribute('alt', `${this._title}, closeup view`)
+    this._container.setAttribute('tabindex', 0)
+    this._container.classList.add('focusable')
+    this._article.appendChild(this._container)
 
     const h4 = document.createElement('h4')
     h4.textContent = this._title
@@ -24,8 +26,6 @@ export class Picture extends Media {
     likeIcon.classList.add('fa-heart')
     h5.appendChild(likeIcon)
     h5.classList.add('media-like')
-    this._article.setAttribute('tabindex', 0)
-    this._article.classList.add('focusable')
     this._article.append(h5)
   }
 

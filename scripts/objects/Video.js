@@ -8,12 +8,14 @@ export class Video extends Media {
     this._article = document.createElement('article')
     this._article.classList.add('card')
 
-    const video = document.createElement('video')
+    this._container = document.createElement('video')
     const source = document.createElement('source')
     source.setAttribute('src', this._video)
-    video.setAttribute('title', `${this._title}, closeup view`)
-    video.appendChild(source)
-    this._article.appendChild(video)
+    this._container.setAttribute('title', `${this._title}, closeup view`)
+    this._container.appendChild(source)
+    this._container.setAttribute('tabindex', 0)
+    this._container.classList.add('focusable')
+    this._article.appendChild(this._container)
 
     const h4 = document.createElement('h4')
     h4.textContent = this._title
@@ -27,8 +29,6 @@ export class Video extends Media {
     likeIcon.classList.add('fa-heart')
     h5.appendChild(likeIcon)
     h5.classList.add('media-like')
-    this._article.setAttribute('tabindex', 0)
-    this._article.classList.add('focusable')
     this._article.append(h5)
   }
 
