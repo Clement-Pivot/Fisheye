@@ -153,6 +153,7 @@
     appearance: none;
     display: inline-flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .filter-button:hover, .filter-button:focus {
@@ -187,6 +188,7 @@
     justify-content: space-between;
     align-content: flex-start;
     color: #901C1C;
+    cursor: pointer;
 }
 
 .card h4, .card h5 {
