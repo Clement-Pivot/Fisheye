@@ -27,6 +27,7 @@ export class PersoPhotographerTemplate extends PhotographerTemplate {
 
     const button = document.createElement('button')
     button.classList.add('contact_button')
+    button.classList.add('focusable')
     button.textContent = 'Contactez-moi'
     // eslint-disable-next-line no-undef
     button.addEventListener('click', () => displayModal())

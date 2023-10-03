@@ -83,6 +83,7 @@ async function init () {
         e.preventDefault()
       }
     }, { once: true })
+    like.classList.add('focusable')
     like.setAttribute('tabindex', 0)
   })
 

@@ -35,6 +35,9 @@ export class Lightbox {
   close () {
     this._currentMedia = null
     this._container.style.display = 'none'
+    document.querySelectorAll('.focusable').forEach(e => {
+      e.setAttribute('tabindex', 0)
+    })
   }
 
   previous () {
@@ -71,5 +74,8 @@ export class Lightbox {
 
     this._content.appendChild(content)
     this._content.appendChild(this._title)
+    document.querySelectorAll('.focusable').forEach(e => {
+      e.setAttribute('tabindex', -1)
+    })
   }
 }

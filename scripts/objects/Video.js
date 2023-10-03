@@ -28,6 +28,7 @@ export class Video extends Media {
     h5.appendChild(likeIcon)
     h5.classList.add('media-like')
     this._article.setAttribute('tabindex', 0)
+    this._article.classList.add('focusable')
     this._article.append(h5)
   }
 
