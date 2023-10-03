@@ -53,6 +53,12 @@ export class Media {
 
   subscribe (obs) {
     this._article.addEventListener('click', () => this.fire())
+    this._article.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        this.fire()
+        e.preventDefault()
+      }
+    })
     this._observers.add(obs)
   }
 
