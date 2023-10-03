@@ -2,6 +2,7 @@ import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
 import { Lightbox } from '../utils/lightbox.js'
+import { submitModal, closeModal } from '../utils/contactForm.js'
 
 async function getPhotographers () {
   return fetch('./data/photographers.json')
@@ -44,8 +45,10 @@ function initModal (photographer) {
   $modal.querySelector('.name').textContent = photographer.name
   $modal.querySelector('.contact_button').addEventListener('click', e => {
     e.preventDefault()
-    // eslint-disable-next-line no-undef
     submitModal()
+  })
+  $modal.querySelector('.modal-close').addEventListener('click', e => {
+    closeModal()
   })
 }
 

@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-function displayModal () {
+export function displayModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
   document.querySelectorAll('.focusable').forEach(e => {
@@ -7,8 +6,7 @@ function displayModal () {
   })
 }
 
-// eslint-disable-next-line no-unused-vars
-function closeModal () {
+export function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
   document.querySelectorAll('.focusable').forEach(e => {
@@ -16,8 +14,7 @@ function closeModal () {
   })
 }
 
-// eslint-disable-next-line no-unused-vars
-function submitModal () {
+export function submitModal () {
   const $modal = document.getElementById('contact_modal')
   $modal.querySelectorAll('input').forEach(input => {
     console.log(input.value)

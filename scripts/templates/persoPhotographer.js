@@ -1,4 +1,5 @@
 import { PhotographerTemplate } from './photographer.js'
+import { displayModal } from '../utils/contactForm.js'
 
 export class PersoPhotographerTemplate extends PhotographerTemplate {
   profileDOM () {
@@ -29,7 +30,6 @@ export class PersoPhotographerTemplate extends PhotographerTemplate {
     button.classList.add('contact_button')
     button.classList.add('focusable')
     button.textContent = 'Contactez-moi'
-    // eslint-disable-next-line no-undef
     button.addEventListener('click', () => displayModal())
 
     const divImg = document.createElement('div')
