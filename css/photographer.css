@@ -304,6 +304,11 @@ i.fa-heart {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.modal .modal-close {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid;
+}
+
 .modal header {
     justify-content: space-between;
     width: 100%;
