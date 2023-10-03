@@ -77,6 +77,13 @@ async function init () {
   setLikes(photographerMediaList, document.querySelector('.photograph-infos'))
   document.querySelectorAll('.media-like i').forEach(like => {
     like.addEventListener('click', e => incrementLikes(e), { once: true })
+    like.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        incrementLikes(e)
+        e.preventDefault()
+      }
+    }, { once: true })
+    like.setAttribute('tabindex', 0)
   })
 
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
