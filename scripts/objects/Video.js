@@ -11,7 +11,7 @@ export class Video extends Media {
     const video = document.createElement('video')
     const source = document.createElement('source')
     source.setAttribute('src', this._video)
-    video.setAttribute('alt', `${this._title}, closeup view`)
+    video.setAttribute('title', `${this._title}, closeup view`)
     video.appendChild(source)
     this._article.appendChild(video)
 
