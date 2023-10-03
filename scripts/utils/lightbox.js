@@ -14,15 +14,22 @@ export class Lightbox {
 
     this._currentMedia = null
 
-    document.addEventListener('keyup', e => {
-      if (this._currentMedia) {
-        if (e.key === 'ArrowLeft') {
-          this.previous()
-        } else if (e.key === 'ArrowRight') {
-          this.next()
-        }
+    this._title = document.createElement('p')
+    this._title.classList.add('lightbox__title')
+
+    document.addEventListener('keyup', this)
+  }
+
+  handleEvent (event) {
+    if (this._currentMedia) {
+      if (event.key === 'ArrowLeft') {
+        this.previous()
+      } else if (event.key === 'ArrowRight') {
+        this.next()
+      } else if (event.key === 'Escape') {
+        this.close()
       }
-    })
+    }
   }
 
   close () {
@@ -60,11 +67,9 @@ export class Lightbox {
     } else {
       throw new Error('Unknown media type')
     }
-    const title = document.createElement('p')
-    title.classList.add('lightbox__title')
-    title.textContent = media.title
+    this._title.textContent = media.title
 
     this._content.appendChild(content)
-    this._content.appendChild(title)
+    this._content.appendChild(this._title)
   }
 }
