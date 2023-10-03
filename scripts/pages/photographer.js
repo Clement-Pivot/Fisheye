@@ -82,8 +82,10 @@ async function init () {
     like.addEventListener('click', e => incrementLikes(e), { once: true })
     like.addEventListener('keydown', e => {
       if (e.key === ' ' || e.key === 'Enter') {
-        incrementLikes(e)
         e.preventDefault()
+        incrementLikes(e)
+        like.classList.remove('focusable')
+        like.setAttribute('tabindex', -1)
       }
     }, { once: true })
     like.classList.add('focusable')
