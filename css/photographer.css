@@ -5,7 +5,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 40px 100px 0;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
