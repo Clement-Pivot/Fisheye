@@ -24,14 +24,18 @@ export class FilterButton {
         })
         switch (e.key) {
           case 'ArrowDown':
-            if (i < this._filters.size - 1) {
+            if (!this._expanded) {
+              this.expand()
+            } else if (i < this._filters.size - 1) {
               e.preventDefault()
               curr = [...this._filters.values()][i + 1]
               curr.focus()
             }
             break
           case 'ArrowUp':
-            if (i > 0) {
+            if (!this._expanded) {
+              this.expand()
+            } else if (i > 0) {
               e.preventDefault()
               curr = [...this._filters.values()][i - 1]
               curr.focus()
