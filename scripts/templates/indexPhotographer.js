@@ -25,15 +25,15 @@ export class IndexPhotographerTemplate extends PhotographerTemplate {
 
     link.appendChild(h2)
 
-    const h3 = document.createElement('h3')
+    const h3 = document.createElement('p')
     h3.classList.add('photographerCard__localisation')
     h3.textContent = `${this._city}, ${this._country}`
 
-    const h4 = document.createElement('h4')
+    const h4 = document.createElement('p')
     h4.classList.add('photographerCard__tagline')
     h4.textContent = this._tagline
 
-    const h5 = document.createElement('h5')
+    const h5 = document.createElement('p')
     h5.classList.add('photographerCard__price')
     h5.textContent = `${this._price}€/jour`
 
