@@ -15,29 +15,26 @@ export class FilterButton {
       elem.addEventListener('click', () => this.filter(name))
     })
     document.addEventListener('keydown', e => {
-      if (e.target.classList.value.includes('filter-button')) {
-        let i = 0
-        let curr = [...this._filters].some(f => {
-          if (f[1] === document.activeElement) return true
-          i++
-          return false
-        })
+      const index = [...this._filters.values()].indexOf(document.activeElement)
+      if (index !== -1) {
         switch (e.key) {
           case 'ArrowDown':
             if (!this._expanded) {
-              this.expand()
-            } else if (i < this._filters.size - 1) {
               e.preventDefault()
-              curr = [...this._filters.values()][i + 1]
+              this.expand()
+            } else if (index < this._filters.size - 1) {
+              e.preventDefault()
+              const curr = [...this._filters.values()][index + 1]
               curr.focus()
             }
             break
           case 'ArrowUp':
             if (!this._expanded) {
-              this.expand()
-            } else if (i > 0) {
               e.preventDefault()
-              curr = [...this._filters.values()][i - 1]
+              this.expand()
+            } else if (index > 0) {
+              e.preventDefault()
+              const curr = [...this._filters.values()][index - 1]
               curr.focus()
             }
             break
