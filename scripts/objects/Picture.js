@@ -19,14 +19,15 @@ export class Picture extends Media {
     h4.classList.add('card-title')
     this._article.appendChild(h4)
 
-    const h5 = document.createElement('h5')
-    h5.textContent = `${this._likes}`
+    const p = document.createElement('p')
+    p.textContent = `${this._likes}`
     const likeIcon = document.createElement('i')
     likeIcon.classList.add('fa-solid')
     likeIcon.classList.add('fa-heart')
-    h5.appendChild(likeIcon)
-    h5.classList.add('media-like')
-    this._article.append(h5)
+    p.appendChild(likeIcon)
+    p.classList.add('media-like')
+    p.setAttribute('aria-label', `${this._likes} likes`)
+    this._article.append(p)
   }
 
   get image () {

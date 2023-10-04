@@ -55,7 +55,7 @@ function initModal (photographer) {
 function incrementLikes (event) {
   event.stopPropagation()
   // change only text not childs
-  const text = event.target.parentNode.childNodes[0]
+  const text = event.target.childNodes[0]
   text.textContent = Number(text.textContent) + 1
   const $infoLikes = document.querySelector('.photograph-infos__likes').childNodes[0]
   $infoLikes.textContent = Number($infoLikes.textContent) + 1
@@ -78,7 +78,7 @@ async function init () {
   setPrice(photographer, document.querySelector('.photograph-infos'))
   initModal(photographer)
   setLikes(photographerMediaList, document.querySelector('.photograph-infos'))
-  document.querySelectorAll('.media-like i').forEach(like => {
+  document.querySelectorAll('.media-like').forEach(like => {
     like.addEventListener('click', e => incrementLikes(e), { once: true })
     like.addEventListener('keydown', e => {
       if (e.key === ' ' || e.key === 'Enter') {
