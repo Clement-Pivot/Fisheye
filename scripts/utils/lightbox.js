@@ -33,6 +33,7 @@ export class Lightbox {
   }
 
   close () {
+    this._currentMedia._container.focus()
     this._currentMedia = null
     this._container.style.display = 'none'
     document.querySelectorAll('.focusable').forEach(e => {
