@@ -59,6 +59,7 @@ function incrementLikes (event) {
   text.textContent = Number(text.textContent) + 1
   const $infoLikes = document.querySelector('.photograph-infos__likes').childNodes[0]
   $infoLikes.textContent = Number($infoLikes.textContent) + 1
+  event.target.parentNode.querySelector('.focusable').focus()
 }
 
 async function init () {
