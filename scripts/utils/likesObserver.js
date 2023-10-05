@@ -41,6 +41,8 @@ export class LikesObserver {
     const heart = document.createElement('i')
     heart.classList.add('fa-solid')
     heart.classList.add('fa-heart')
+    heart.setAttribute('aria-label', 'likes')
+    heart.setAttribute('role', 'img')
     infosLikes.appendChild(heart)
   }
 }
