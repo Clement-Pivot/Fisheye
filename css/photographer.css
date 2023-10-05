@@ -214,6 +214,10 @@ i.fa-heart {
     cursor: pointer;
 }
 
+.media-like {
+    cursor: pointer;
+}
+
 
 .photograph-infos {
     display: flex;
