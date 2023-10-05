@@ -10,6 +10,27 @@ export class Media {
     this._likeObservers = new Set()
     this._next = null
     this._previous = null
+
+    this._article = document.createElement('article')
+    this._article.classList.add('card')
+
+    const h4 = document.createElement('h4')
+    h4.textContent = this._title
+    h4.classList.add('card-title')
+    this._article.appendChild(h4)
+
+    const p = document.createElement('p')
+    p.textContent = `${this._likes}`
+    const likeIcon = document.createElement('i')
+    likeIcon.classList.add('fa-solid')
+    likeIcon.classList.add('fa-heart')
+    p.appendChild(likeIcon)
+    p.classList.add('media-like')
+    likeIcon.setAttribute('aria-label', 'likes')
+    likeIcon.setAttribute('role', 'img')
+    this._article.append(p)
+
+    this._likeContainer = this._article.querySelector('.media-like')
   }
 
   get id () {
