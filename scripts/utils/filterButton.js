@@ -46,6 +46,7 @@ export class FilterButton {
   }
 
   expand () {
+    this._container.setAttribute('aria-expanded', true)
     this.showExpandedChevron()
     this._filters.forEach(element => {
       element.style.display = 'inline-flex'
@@ -63,16 +64,16 @@ export class FilterButton {
   shrink (order) {
     this._container.classList.remove('active')
     this._expanded = false
+    this._container.setAttribute('aria-expanded', false)
     // foreach because can be empty
     this._container.querySelectorAll('.fa-chevron-down')
       .forEach(icon => icon.classList.remove('fa-chevron-down'))
     this._filters.forEach((filter, key) => {
       if (key !== order) {
         filter.style.display = 'none'
-        filter.setAttribute('aria-selected', false)
       } else {
         filter.querySelector('.fa-solid').classList.add('fa-chevron-up')
-        filter.setAttribute('aria-selected', true)
+        this._container.setAttribute('aria-activedescendant', filter.id)
       }
     })
   }
