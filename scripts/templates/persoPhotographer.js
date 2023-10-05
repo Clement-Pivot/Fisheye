@@ -15,11 +15,11 @@ export class PersoPhotographerTemplate extends PhotographerTemplate {
 
     div.appendChild(h1)
 
-    const h2 = document.createElement('h2')
+    const h2 = document.createElement('p')
     h2.classList.add('photographer-profile__localisation')
     h2.textContent = `${this._city}, ${this._country}`
 
-    const h3 = document.createElement('h3')
+    const h3 = document.createElement('p')
     h3.classList.add('photographer-profile__tagline')
     h3.textContent = this._tagline
 
