@@ -7,6 +7,7 @@ export class Media {
     this._date = media.date
     this._price = media.price
     this._observers = new Set()
+    this._likeObservers = new Set()
     this._next = null
     this._previous = null
   }
@@ -68,6 +69,22 @@ export class Media {
 
   fire () {
     this._observers.forEach(obs => obs.show(this))
+  }
+
+  likeSubscribe (obs) {
+    obs.subscribed(this)
+    this._likeObservers.add(obs)
+  }
+
+  likeUnsubscribe (obs) {
+    obs.unsubscribed(this)
+    this._likeObservers.delete(obs)
+  }
+
+  likeFire (e) {
+    this._likeObservers.forEach(obs => {
+      obs.increment(this, e)
+    })
   }
 
   getMediaCardDOM () {
