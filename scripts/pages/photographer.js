@@ -3,6 +3,7 @@ import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
 import { Lightbox } from '../utils/lightbox.js'
 import { submitModal, closeModal } from '../utils/contactForm.js'
+import { LikesObserver } from '../utils/likesObserver.js'
 
 async function getPhotographers () {
   return fetch('./data/photographers.json')
@@ -27,19 +28,6 @@ function setPrice (photographer, $infosWrapper) {
   $infosPrice.textContent = `${photographer.price}€ / jour`
 }
 
-function setLikes (photographerMediaList, $infosWrapper) {
-  const $infosLikes = $infosWrapper.querySelector('.photograph-infos__likes')
-  let likes = 0
-  photographerMediaList.forEach(media => {
-    likes += media.likes
-  })
-  $infosLikes.textContent = likes
-  const heart = document.createElement('i')
-  heart.classList.add('fa-solid')
-  heart.classList.add('fa-heart')
-  $infosLikes.appendChild(heart)
-}
-
 function initModal (photographer) {
   const $modal = document.querySelector('.modal')
   $modal.querySelector('.name').textContent = photographer.name
@@ -50,16 +38,6 @@ function initModal (photographer) {
   $modal.querySelector('.modal-close').addEventListener('click', e => {
     closeModal()
   })
-}
-
-function incrementLikes (event) {
-  event.stopPropagation()
-  // change only text not childs
-  const text = event.target.childNodes[0]
-  text.textContent = Number(text.textContent) + 1
-  const $infoLikes = document.querySelector('.photograph-infos__likes').childNodes[0]
-  $infoLikes.textContent = Number($infoLikes.textContent) + 1
-  event.target.parentNode.querySelector('.focusable').focus()
 }
 
 async function init () {
@@ -78,23 +56,13 @@ async function init () {
 
   setPrice(photographer, document.querySelector('.photograph-infos'))
   initModal(photographer)
-  setLikes(photographerMediaList, document.querySelector('.photograph-infos'))
-  document.querySelectorAll('.media-like').forEach(like => {
-    like.addEventListener('click', e => incrementLikes(e), { once: true })
-    like.addEventListener('keydown', e => {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault()
-        incrementLikes(e)
-        like.classList.remove('focusable')
-        like.setAttribute('tabindex', -1)
-      }
-    }, { once: true })
-    like.classList.add('focusable')
-    like.setAttribute('tabindex', 0)
-  })
-
+  const likesObs = new LikesObserver(photographerMediaList, document.querySelector('.photograph-infos'))
+  likesObs.init()
   const lightbox = new Lightbox(document.querySelector('.lightbox'))
-  photographerMediaList.forEach(media => media.subscribe(lightbox))
+  photographerMediaList.forEach(media => {
+    media.subscribe(lightbox)
+    media.likeSubscribe(likesObs)
+  })
 }
 
 init()
