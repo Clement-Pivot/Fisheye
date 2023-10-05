@@ -71,6 +71,7 @@ export class Lightbox {
     } else {
       throw new Error('Unknown media type')
     }
+    this._container.setAttribute('aria-label', `${media.title} closeup view`)
     this._title.textContent = media.title
 
     this._content.appendChild(content)
