@@ -28,6 +28,8 @@ export class Picture extends Media {
     p.classList.add('media-like')
     p.setAttribute('aria-label', `${this._likes} likes`)
     this._article.append(p)
+
+    this._likeContainer = this._article.querySelector('.media-like')
   }
 
   get image () {
