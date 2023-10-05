@@ -19,17 +19,22 @@
     <main id="main">
       <section class="media-section">
         <div class="filter-wrapper">
-          Trier par
-          <div class="filter-button__container">
-            <button class="filter-button focusable" id="filter-popularity">
+          <span id="filter-label">Trier par</span>
+          <div class="filter-button__container"
+            role="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-activedescendant="filter-popularity"
+            aria-labelledby="filter-label">
+            <button class="filter-button focusable" id="filter-popularity" >
               <span class="filter-button__text">Popularité</span>
               <span class="fa-solid fa-chevron-up"></span>
             </button>
-            <button class="filter-button focusable hidden" id="filter-date">
+            <button class="filter-button focusable" id="filter-date">
               <span class="filter-button__text">Date</span>
               <span class="fa-solid"></span>
             </button>
-            <button class="filter-button hidden focusable" id="filter-title">
+            <button class="filter-button focusable" id="filter-title">
               <span class="filter-button__text">Titre</span>
               <span class="fa-solid"></span>
             </button>
