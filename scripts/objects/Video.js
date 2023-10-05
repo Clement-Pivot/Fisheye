@@ -29,6 +29,7 @@ export class Video extends Media {
     likeIcon.classList.add('fa-heart')
     p.appendChild(likeIcon)
     p.classList.add('media-like')
+    p.setAttribute('aria-label', `${this._likes} likes`)
     this._article.append(p)
   }
 
