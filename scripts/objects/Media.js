@@ -14,7 +14,7 @@ export class Media {
     this._article = document.createElement('article')
     this._article.classList.add('card')
 
-    const h4 = document.createElement('h4')
+    const h4 = document.createElement('h2')
     h4.textContent = this._title
     h4.classList.add('card-title')
     this._article.appendChild(h4)
