@@ -13,7 +13,8 @@ export class FilterButton {
   init () {
     this._filters.forEach((elem, name) => {
       elem.addEventListener('click', () => this.filter(name))
-      elem.addEventListener('focus', () => this._container.setAttribute('aria-activedescendant', elem.id))
+      elem.addEventListener('focus', () =>
+        this._container.setAttribute('aria-activedescendant', elem.id))
     })
     document.addEventListener('keydown', e => {
       const index = [...this._filters.values()].indexOf(document.activeElement)
@@ -27,7 +28,6 @@ export class FilterButton {
               e.preventDefault()
               const curr = [...this._filters.values()][index + 1]
               curr.focus()
-              this._container.setAttribute('aria-activedescendant', curr.id)
             }
             break
           case 'ArrowUp':
@@ -38,7 +38,6 @@ export class FilterButton {
               e.preventDefault()
               const curr = [...this._filters.values()][index - 1]
               curr.focus()
-              this._container.setAttribute('aria-activedescendant', curr.id)
             }
             break
         }
@@ -50,6 +49,8 @@ export class FilterButton {
 
   expand () {
     this._container.setAttribute('aria-expanded', true)
+    this._container.setAttribute('aria-activedescendant',
+      this._container.querySelector(':focus').id)
     this.showExpandedChevron()
     this._filters.forEach(element => {
       element.style.display = 'inline-flex'
@@ -78,6 +79,7 @@ export class FilterButton {
         filter.querySelector('.fa-solid').classList.add('fa-chevron-up')
       }
     })
+    this._container.removeAttribute('aria-activedescendant')
   }
 
   refreshMediaLinks () {
@@ -124,7 +126,8 @@ export class FilterButton {
       while (this._mediaContainer.firstChild) {
         this._mediaContainer.removeChild(this._mediaContainer.firstChild)
       }
-      this._medias.forEach(media => this._mediaContainer.appendChild(media.getMediaCardDOM()))
+      this._medias.forEach(media =>
+        this._mediaContainer.appendChild(media.getMediaCardDOM()))
     }
     return this._medias
   }
