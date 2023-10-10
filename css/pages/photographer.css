@@ -1,7 +1,7 @@
-@import url("avatar.css");
-@import url("contact.css");
-@import url("lightbox.css");
-@import url("style.css");
+@import url("../utils/avatar.css");
+@import url("../utils/contact.css");
+@import url("../utils/lightbox.css");
+@import url("../style.css");
 
 .photograph-header {
     background-color: #FAFAFA;
