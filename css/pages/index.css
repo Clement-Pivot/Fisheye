@@ -1,2 +1,11 @@
-@import url("../utils/avatar.css");
+@import url("../components/avatar.css");
 @import url("../style.css");
+@import url("../components/photographerCard.css");
+
+
+.photographer_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+}
