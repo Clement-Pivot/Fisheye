@@ -14,7 +14,7 @@ export class IndexPhotographerTemplate extends PhotographerTemplate {
     const img = document.createElement('img')
     img.setAttribute('src', this._picture)
     img.setAttribute('alt', '')
-    img.classList.add(`photographerCard__img--${this._id}`)
+    img.classList.add(`photographer__img--${this._id}`)
 
     divImg.appendChild(img)
     link.appendChild(divImg)

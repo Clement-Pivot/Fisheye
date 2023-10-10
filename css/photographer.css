@@ -1,3 +1,5 @@
+@import url("avatar.css");
+
 #contact_modal {
     display: none;
 }
@@ -64,53 +66,6 @@
 .photographer-profile__img img {
     object-fit: cover;
     position: relative;
-}
-
-
-/* Mimi Keel */
-.photographer-profile__img--243 {
-    height: 300px;
-    width: 300px;
-    top: -15%;
-    left: -20%;
-}
-
-/* Ellie-Rose */
-.photographer-profile__img--930 {
-    height: 350px;
-    width: 350px;
-    top: -20%;
-    left: -35%;
-}
-
-/* Tracy */
-.photographer-profile__img--82 {
-    height: 250px;
-    width: 250px;
-    top: -10%;
-}
-
-/* Nabeel */
-.photographer-profile__img--527 {
-    height: 250px;
-    width: 250px;
-    left: -10%;
-}
-
-/* Rhode */
-.photographer-profile__img--925 {
-    height: 320px;
-    width: 320px;
-    left: -30%;
-    top: -15%;
-}
-
-/* Marcel */
-.photographer-profile__img--195 {
-    height: 320px;
-    width: 320px;
-    left: -20%;
-    top: -15%;
 }
 
 

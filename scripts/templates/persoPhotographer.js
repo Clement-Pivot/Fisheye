@@ -38,7 +38,7 @@ export class PersoPhotographerTemplate extends PhotographerTemplate {
     const img = document.createElement('img')
     img.setAttribute('src', this._picture)
     img.setAttribute('alt', this._name)
-    img.classList.add(`photographer-profile__img--${this._id}`)
+    img.classList.add(`photographer__img--${this._id}`)
 
     divImg.appendChild(img)
 
