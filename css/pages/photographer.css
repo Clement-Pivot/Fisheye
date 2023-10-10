@@ -1,73 +1,12 @@
 @import url("../style.css");
 @import url("../components/avatar.css");
 @import url("../components/filter.css");
-@import url("../layouts/contact.css");
+@import url("../components/media.css");
+@import url("../components/like.css");
+@import url("../components/contactButton.css");
+@import url("../layouts/contactModal.css");
 @import url("../layouts/lightbox.css");
-
-
-.photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 40px 100px 0;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-}
-
-.photographer-profile__name {
-    color: #D3573C;
-    font-size: 64px;
-    font-weight: 400;
-    margin: 0;
-}
-
-.photographer-profile__localisation {
-    color: #901C1C;
-    font-size: 24px;
-    font-weight: 400;
-    margin: 0;
-}
-
-.photographer-profile__tagline {
-    color: #525252;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 19px 0 0;
-}
-
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.contact_button:hover, .contact_button:focus {
-    background-color: #DB8876;
-    color: black;
-    border: 0px;
-}
-
-.photographer-profile__img {
-    height: 200px;
-    width: 200px;
-    border-radius: 100px;
-    overflow: hidden;
-    position: relative;
-}
-
-.photographer-profile__img img {
-    object-fit: cover;
-    position: relative;
-}
+@import url("../layouts/photographerProfile.css");
 
 
 .media-section {
@@ -75,51 +14,12 @@
     position: relative;
 }
 
-/* medias */
 .media-container {
     margin: 50px auto 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit,  350px);
     justify-content: space-between;
 }
-
-.card {
-    display: flex;
-    flex-flow: row wrap;
-    flex: 0 0 350px;
-    justify-content: space-between;
-    align-content: flex-start;
-    color: #901C1C;
-}
-
-.card h2, .card p {
-    font-size: 24px;
-    margin: 10px 0 30px;
-    height: max-content;
-}
-
-.card h2 {
-    flex: 1 0 80%;
-    font-weight: 400;
-    text-wrap: wrap;
-}
-
-i.fa-heart {
-    margin-left: 5px;
-}
-
-.card img, .card video {
-    border-radius: 5px;
-    width: 350px;
-    height: 300px;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.media-like {
-    cursor: pointer;
-}
-
 
 .photograph-infos {
     display: flex;
@@ -136,4 +36,3 @@ i.fa-heart {
     bottom: 0px;
     right: 36px;
 }
-

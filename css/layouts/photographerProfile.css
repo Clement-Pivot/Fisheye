@@ -1,0 +1,44 @@
+.photograph-header {
+  background-color: #FAFAFA;
+  height: 300px;
+  margin: 40px 100px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.photographer-profile__name {
+  color: #D3573C;
+  font-size: 64px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.photographer-profile__localisation {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.photographer-profile__tagline {
+  color: #525252;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 19px 0 0;
+}
+
+.photographer-profile__img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photographer-profile__img img {
+  object-fit: cover;
+  position: relative;
+}

@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 350px;
+  justify-content: space-between;
+  align-content: flex-start;
+  color: #901C1C;
+}
+
+.card h2, .card p {
+  font-size: 24px;
+  margin: 10px 0 30px;
+  height: max-content;
+}
+
+.card h2 {
+  flex: 1 0 80%;
+  font-weight: 400;
+  text-wrap: wrap;
+}
+
+.card img, .card video {
+  border-radius: 5px;
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+}
