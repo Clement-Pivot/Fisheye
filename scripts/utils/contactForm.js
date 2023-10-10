@@ -20,7 +20,7 @@ export function submitModal () {
     console.log(input.value)
     input.value = ''
   })
-  console.log($modal.querySelectorAll('textarea').value)
-  $modal.querySelectorAll('textarea').value = ''
+  console.log($modal.querySelector('textarea').value)
+  $modal.querySelector('textarea').value = ''
   closeModal()
 }
