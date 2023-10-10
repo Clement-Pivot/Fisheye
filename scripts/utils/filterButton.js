@@ -13,6 +13,7 @@ export class FilterButton {
   init () {
     this._filters.forEach((elem, name) => {
       elem.addEventListener('click', () => this.filter(name))
+      elem.addEventListener('focus', () => this._container.setAttribute('aria-activedescendant', elem.id))
     })
     document.addEventListener('keydown', e => {
       const index = [...this._filters.values()].indexOf(document.activeElement)
@@ -26,6 +27,7 @@ export class FilterButton {
               e.preventDefault()
               const curr = [...this._filters.values()][index + 1]
               curr.focus()
+              this._container.setAttribute('aria-activedescendant', curr.id)
             }
             break
           case 'ArrowUp':
@@ -36,6 +38,7 @@ export class FilterButton {
               e.preventDefault()
               const curr = [...this._filters.values()][index - 1]
               curr.focus()
+              this._container.setAttribute('aria-activedescendant', curr.id)
             }
             break
         }
@@ -73,7 +76,6 @@ export class FilterButton {
         filter.style.display = 'none'
       } else {
         filter.querySelector('.fa-solid').classList.add('fa-chevron-up')
-        this._container.setAttribute('aria-activedescendant', filter.id)
       }
     })
   }
