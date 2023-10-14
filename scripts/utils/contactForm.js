@@ -4,6 +4,7 @@ export function displayModal () {
   document.querySelectorAll('.focusable').forEach(e => {
     e.setAttribute('tabindex', -1)
   })
+  modal.querySelector('input').focus()
 }
 
 export function closeModal () {
