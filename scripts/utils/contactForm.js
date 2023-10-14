@@ -24,3 +24,15 @@ export function submitModal () {
   $modal.querySelector('textarea').value = ''
   closeModal()
 }
+
+export function initModal (photographer) {
+  const $modal = document.querySelector('.modal')
+  $modal.querySelector('.name').textContent = photographer.name
+  $modal.querySelector('.contact_button').addEventListener('click', e => {
+    e.preventDefault()
+    submitModal()
+  })
+  $modal.querySelector('.modal-close').addEventListener('click', e => {
+    closeModal()
+  })
+}
