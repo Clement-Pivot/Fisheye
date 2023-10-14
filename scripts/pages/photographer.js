@@ -2,7 +2,7 @@ import { MediaFactory } from '../factories/MediaFactory.js'
 import { PersoPhotographerTemplate } from '../templates/persoPhotographer.js'
 import { FilterButton } from '../utils/filterButton.js'
 import { Lightbox } from '../utils/lightbox.js'
-import { submitModal, closeModal } from '../utils/contactForm.js'
+import { initModal } from '../utils/contactForm.js'
 import { LikesObserver } from '../utils/likesObserver.js'
 
 async function getPhotographers () {
@@ -11,10 +11,17 @@ async function getPhotographers () {
     .catch((error) => alert(`Erreur ${error}`))
 }
 
+function getUrlParams (name) {
+  // truncate ? from URL then compare each param with name
+  return window.location.search.slice(1)
+    .split('&').filter(param => param.split('=')[0] === name)[0]
+    .split('=')[1]
+}
+
 function getActualPhotographer (photographers) {
   // return Object which is this page's data
   return photographers.filter((data) =>
-    data.id.toString() === window.location.search.slice(1))[0]
+    data.id.toString() === getUrlParams('id'))[0]
 }
 
 function getPhotographerMedia (photographerId, mediaList) {
@@ -26,18 +33,6 @@ function getPhotographerMedia (photographerId, mediaList) {
 function setPrice (photographer, $infosWrapper) {
   const $infosPrice = $infosWrapper.querySelector('.photograph-infos__price')
   $infosPrice.textContent = `${photographer.price}€ / jour`
-}
-
-function initModal (photographer) {
-  const $modal = document.querySelector('.modal')
-  $modal.querySelector('.name').textContent = photographer.name
-  $modal.querySelector('.contact_button').addEventListener('click', e => {
-    e.preventDefault()
-    submitModal()
-  })
-  $modal.querySelector('.modal-close').addEventListener('click', e => {
-    closeModal()
-  })
 }
 
 async function init () {

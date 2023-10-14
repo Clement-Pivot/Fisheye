@@ -6,7 +6,7 @@ export class IndexPhotographerTemplate extends PhotographerTemplate {
     article.classList.add('photographerCard')
 
     const link = document.createElement('a')
-    link.setAttribute('href', `photographer.html?${this._id}`)
+    link.setAttribute('href', `photographer.html?id=${this._id}`)
 
     const divImg = document.createElement('div')
     divImg.classList.add('photographerCard__img')
