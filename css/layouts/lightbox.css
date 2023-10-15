@@ -30,7 +30,7 @@
   color: #901C1C;
   background: none;
   border: none;
-  font-size: 64px;
+  font-size: 4em;
   width: 64px;
   height: 64px;
 }
@@ -53,6 +53,6 @@
 
 .lightbox__title {
   color: #901C1C;
-  font-size: 24px;
+  font-size: 1.5em;
   margin: 0
 }

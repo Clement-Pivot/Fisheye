@@ -1,5 +1,5 @@
 .filter-wrapper {
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 700;
   position: relative;
   height: 60px;
@@ -26,7 +26,7 @@
   border: none;
   width: 170px;
   height: 60px;
-  font-size: 18px;
+  font-size: 1.125em;
   padding: 20px;
   position: relative;
   appearance: none;
