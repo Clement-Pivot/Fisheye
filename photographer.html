@@ -21,22 +21,22 @@
         <div class="filter-wrapper">
           <span id="filter-label">Trier par</span>
           <div class="filter-button__container"
-            role="button"
+            role="listbox"
             aria-haspopup="listbox"
             aria-expanded="false"
             aria-labelledby="filter-label">
-            <div class="filter-button focusable" id="filter-popularity" >
+            <button class="filter-button focusable" id="filter-popularity" tabindex="0">
               <span class="filter-button__text">Popularité</span>
               <span class="fa-solid fa-chevron-up"></span>
-            </div>
-            <div class="filter-button focusable" id="filter-date">
+            </button>
+            <button class="filter-button focusable" id="filter-date">
               <span class="filter-button__text">Date</span>
               <span class="fa-solid"></span>
-            </div>
-            <div class="filter-button focusable" id="filter-title">
+            </button>
+            <button class="filter-button focusable" id="filter-title">
               <span class="filter-button__text">Titre</span>
               <span class="fa-solid"></span>
-            </div>
+            </button>
           </div>
         </div>
         <div class="media-container"></div>
