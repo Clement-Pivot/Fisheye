@@ -16,7 +16,6 @@
 .card h2 {
   flex: 1 0 80%;
   font-weight: 400;
-  text-wrap: wrap;
 }
 
 .card img, .card video {
