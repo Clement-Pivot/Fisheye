@@ -1,4 +1,5 @@
 export function displayModal () {
+  document.querySelector('main').setAttribute('aria-hidden', 'true')
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
   document.querySelectorAll('.focusable').forEach(e => {
@@ -8,6 +9,7 @@ export function displayModal () {
 }
 
 export function closeModal () {
+  document.querySelector('main').removeAttribute('aria-hidden')
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
   document.querySelectorAll('.focusable').forEach(e => {

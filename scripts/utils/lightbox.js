@@ -33,6 +33,7 @@ export class Lightbox {
   }
 
   close () {
+    document.querySelector('main').removeAttribute('aria-hidden')
     this._currentMedia._container.focus()
     this._currentMedia = null
     this._container.style.display = 'none'
@@ -50,6 +51,7 @@ export class Lightbox {
   }
 
   show (media) {
+    document.querySelector('main').setAttribute('aria-hidden', 'true')
     this._currentMedia = media
     this._container.style.display = 'flex'
     // reset lightbox content
