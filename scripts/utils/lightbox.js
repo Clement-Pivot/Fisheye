@@ -54,6 +54,7 @@ export class Lightbox {
     document.querySelector('main').setAttribute('aria-hidden', 'true')
     this._currentMedia = media
     this._container.style.display = 'flex'
+    document.querySelector('.lightbox__content').focus()
     // reset lightbox content
     while (this._content.firstChild) {
       this._content.removeChild(this._content.firstChild)
