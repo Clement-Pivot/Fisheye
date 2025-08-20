@@ -12,7 +12,6 @@ Disponible sur [GitHub Pages](https://clement-pivot.github.io/Fisheye)
 ## Démarrage
 
 Ouvrez le fichier index.html avec un navigateur internet.
-Vous pouvez aussi aller sur la page [GitHub Pages](https://malfeitor.github.io/Fisheye/) pour voir le site sans rien télécharger.
 
 ## Fabriqué avec
 
