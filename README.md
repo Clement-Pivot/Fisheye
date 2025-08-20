@@ -1,6 +1,6 @@
 # FishEye
 
-[![pages-build-deployment](https://github.com/malfeitor/FishEye/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/malfeitor/FishEye/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/Clement-Pivot/FishEye/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Clement-Pivot/FishEye/actions/workflows/pages/pages-build-deployment)
 
 Code du projet 6 FishEye de la formation React d'OpenClassroom en HTML, CSS et Javascript uniquement. \
 Disponible sur [GitHub Pages](https://clement-pivot.github.io/Fisheye)
@@ -21,4 +21,4 @@ Ouvrez le fichier index.html avec un navigateur internet.
 
 ## Auteurs
 
-* **Clément Pivot** _alias_ [@malfeitor](https://github.com/malfeitor)
+* **Clément Pivot** _alias_ [@malfeitor](https://github.com/Clement-Pivot)
